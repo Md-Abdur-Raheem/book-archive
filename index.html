@@ -4,36 +4,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Books</title>
+    <title>Books Archive</title>
     <!-- Bootstrap CSS link -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
     <!-- Search Input Section -->
    <section class="container">
-    <h1 class="text-center text-primary p-5">Search Your Favourite Books!!!</h1>
-    <div class="input-group mb-3">
-        <input type="text" id="input-field" class="form-control mb-5" placeholder="Enter book name..." aria-label="Recipient's username" aria-describedby="button-addon2">
-        <button onclick="searchItems()" class="btn btn-outline-primary mb-5" type="button" id="button-addon2">Search</button>
-      </div>
+        <h1 class="text-center text-primary p-5">Search Your Favourite Books!!!</h1>
+        <div class="input-group mb-3">
+            <input type="text" id="input-field" class="form-control mb-5" placeholder="Enter book's name..." aria-label="Recipient's username" aria-describedby="button-addon2">
+            <button onclick="searchItems()" class="btn btn-outline-primary mb-5" type="button" id="button-addon2">Search</button>
+        </div>
+      <!-- Spinner -->
+        <div id="spinner" class=" text-center">
+            <div class="spinner-border text-info" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
    </section>
 
+   
+
    <!-- Search Results Section -->
-   <section id="container" class="container">
+   <section class="container">
        <h5 id="results-num" class="text-center text-primary p-5"></h5>
-    <div id="results-container" class="row row-cols-1 row-cols-md-3 g-4">
-        <!-- Repeating Section -->
-        <div class="col">
-          <div class="card h-100">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            </div>
-          </div>
-        </div>
-        <!-- Repeating section -->
-      </div>
+        <div id="results-container" class="row row-cols-1 row-cols-md-3 g-4"></div>
    </section>
 
    <!-- Bootstram JS link -->
