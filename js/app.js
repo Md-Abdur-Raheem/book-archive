@@ -67,8 +67,8 @@ const displayRsults = books => {
             <img src="${imgUrl}" height = "500px" class="card-img-top" alt="Image not available">
             <div class="card-body">
               <h4 class="card-title"><b>${book.title}</b></h4>
-              <h5 class="text-info">Author: <u>${book.author_name}</u></h5>
-              <h6>Publisher: <u>${book.publisher}</u></h6>
+              <h5 class="text-info">Author: <u>${book.author_name[0]}</u></h5>
+              <h6>Publisher: <u>${book.publisher[0]}</u></h6>
               <h6><small>First publish: ${book.first_publish_year}</small></h6>
             </div>
           </div>
