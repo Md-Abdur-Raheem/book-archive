@@ -41,6 +41,7 @@ const displayRsults = books => {
     if (books.numFound === 0) {
         resultsNum.innerText = 'No result found';
         showSpinner('none');
+        return;
    }
     
     books.docs.forEach(book => {
@@ -48,14 +49,23 @@ const displayRsults = books => {
         let imgUrl = `https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`;
 
         // if author name or publishing year or image is unavailable
-        if (book.author_name === undefined) {
-            book.author_name = 'Unknown';
+        if (!book.hasOwnProperty('author_name')) {
+            book.author_name = ["Unknown"];
         }
         else if (book.first_publish_year === undefined) {
             book.first_publish_year = 'No info found';
         }
-        else if (book.cover_i === undefined) {
+        else if (!book.hasOwnProperty('cover_i')) {
             imgUrl = 'https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg';
+        }
+            
+       //if publishers are unavailable
+        else if (!book.hasOwnProperty('publisher')) {
+            book.publisher = ["No info found"];
+        }
+        // if so many book publishers are available 
+        else if (book.publisher.length > 1) {
+            book.publisher = [`${book.publisher[0]}`];
         }
     
 
@@ -68,7 +78,7 @@ const displayRsults = books => {
             <div class="card-body">
               <h4 class="card-title"><b>${book.title}</b></h4>
               <h5 class="text-info">Author: <u>${book.author_name[0]}</u></h5>
-              <h6>Publisher: <u>${book.publisher[0]}</u></h6>
+              <h6>Publisher: <u>${book.publisher}</u></h6>
               <h6><small>First publish: ${book.first_publish_year}</small></h6>
             </div>
           </div>
